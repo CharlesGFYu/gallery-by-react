@@ -31,22 +31,18 @@ class ImgFigure extends React.Component {
 }
 
 class AppComponent extends React.Component {
-	construct(){
-		this.controllerUnits = [];
-		this.ImgFigures = [];
-	}
   render() {
-  	// var controllerUnits = [],ImgFigures = [];
+  	let controllerUnits = [],ImgFigures = [];
   	imageDatas.forEach((value) => {
-  		this.ImgFigures.push(<ImgFigure data={value}/>);
-  	}).bind(this);
+  		ImgFigures.push(<ImgFigure data={value}/>);
+  	});
     return (
 	    <section className="stage">
 	     	<section className="img-sec">
-	     		{this.imgFigures}
+	     		{imgFigures}
 	     	</section>
 	     	<nav className="controller-nav">
-					{this.controllerUnits}
+					{controllerUnits}
 	     	</nav>
 	    </section>
     );
