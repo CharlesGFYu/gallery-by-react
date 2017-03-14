@@ -6,6 +6,18 @@ import React from 'react';
 //获取图片数据
 let imageDatas = require('../data/imageDatas.json');
 //将图片信息转换为图片URL路径信息
+/*let genImageURL = (imageDatasArr) => {
+	for (let i = 0,j = imageDatasArr.length; i < j; i++) {
+		let singleImageData = imageDatasArr[i]
+
+		singleImageData.imageURL = require('../images/' + singleImageData.fileName);
+
+		imageDatasArr[i] = singleImageData;
+	}
+	return imageDatasArr;
+}
+
+imageDatas = genImageURL(imageDatas);*/
 imageDatas = ((imageDatasArr) => {
 	for (let i = 0,j = imageDatasArr.length; i < j; i++) {
 		let singleImageData = imageDatasArr[i]
@@ -145,10 +157,6 @@ class AppComponent extends React.Component {
 		return (Math.random() > 0.5 ? '' : '-')+Math.ceil(Math.random()*30);
 	}
 	/*
-		* 重新布局所有图片
-		* @param centerIndex 指定居中排布哪个图片
-	*/
-	/*
 		* 翻转图片
 		* @param index 输入当前被执行 inverse 操作的图片对应的图片信息数组的 index 值
 		* @param {Function} 这是一个闭包函数，其内 return 一个真正待被执行的函数
@@ -172,6 +180,10 @@ class AppComponent extends React.Component {
 			this.rearrange(index);
 		}.bind(this);
 	}
+	/*
+		* 重新布局所有图片
+		* @param centerIndex 指定居中排布哪个图片
+	*/
 	rearrange(centerIndex) {
 		let imgsArrangeArr = this.state.imgsArrangeArr,
 				Constant = this.state.Constant,
